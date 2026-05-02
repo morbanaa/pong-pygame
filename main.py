@@ -1,4 +1,5 @@
 import pygame
+import random
 from classes import PlayerOne,PlayerTwo,Ball
 
 GAME_WIDTH = 1280
@@ -14,7 +15,7 @@ def main():
     clock = pygame.time.Clock()
     player_one = PlayerOne(20,GAME_HEIGHT//2,5)
     player_two = PlayerTwo(GAME_WIDTH - 40,GAME_HEIGHT//2,5)
-    ball = Ball(GAME_WIDTH//2,GAME_HEIGHT//2,3)
+    ball = Ball(GAME_WIDTH//2,GAME_HEIGHT//2,3,random.randint(1,2),random.randint(0,10))
 
     running = True
     while running:
@@ -30,6 +31,9 @@ def main():
         ##############################################
         # Update
         ##############################################
+        # Move Ball
+        ball.xpos,ball.ypos = ball.update()
+        
 
         ##############################################
         # Draw
@@ -41,7 +45,7 @@ def main():
         #Draw PlayerTwo
         pygame.draw.rect(screen,(0,0,0),(player_two.xpos,player_two.ypos,20,100))
         #Draw Ball
-        pygame.draw.circle(screen,(255,0,0),(GAME_WIDTH//2,GAME_HEIGHT//2),10)
+        pygame.draw.circle(screen,(255,0,0),(ball.xpos,ball.ypos),10)
 
         pygame.display.update() # Apply Changes
     
