@@ -30,8 +30,8 @@ def main():
         ##############################################
         # Move Ball
         ball.xpos,ball.ypos = ball.update()
-        player_one.xpos,player_one.ypos = player_one.update()
-        player_two.xpos,player_two.ypos = player_two.update()
+        player_one.update()
+        player_two.update()
         
 
         ##############################################
