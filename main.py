@@ -1,9 +1,6 @@
 import pygame
 import random
-from classes import PlayerOne,PlayerTwo,Ball
-
-GAME_WIDTH = 1280
-GAME_HEIGHT = 720
+from classes import PlayerOne,PlayerTwo,Ball,GAME_HEIGHT,GAME_WIDTH
 
 def main():
     # set up the window
@@ -15,7 +12,7 @@ def main():
     clock = pygame.time.Clock()
     player_one = PlayerOne(20,GAME_HEIGHT//2,5)
     player_two = PlayerTwo(GAME_WIDTH - 40,GAME_HEIGHT//2,5)
-    ball = Ball(GAME_WIDTH//2,GAME_HEIGHT//2,3,random.randint(1,2),random.randint(0,10))
+    ball = Ball(GAME_WIDTH//2,GAME_HEIGHT//2,3)
 
     running = True
     while running:
@@ -33,6 +30,7 @@ def main():
         ##############################################
         # Move Ball
         ball.xpos,ball.ypos = ball.update()
+        player_one.xpos,player_one.ypos = player_one.update()
         
 
         ##############################################
