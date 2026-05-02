@@ -13,18 +13,18 @@ class PlayerOne(GameObjects):
     def update(self):
         keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_w]:
+        if keys[pygame.K_w] and self.ypos > 0:
             self.ypos -= self.speed
-        if keys[pygame.K_s]:
+        if keys[pygame.K_s] and self.ypos < GAME_HEIGHT -100:
             self.ypos += self.speed
 
 class PlayerTwo(GameObjects):
     def update(self):
         keys = pygame.key.get_pressed()
 
-        if keys[pygame.K_UP]:
+        if keys[pygame.K_UP] and self.ypos > 0:
             self.ypos -= self.speed
-        if keys[pygame.K_DOWN]:
+        if keys[pygame.K_DOWN] and self.ypos < GAME_HEIGHT -100:
             self.ypos += self.speed
 
 
