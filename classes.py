@@ -18,10 +18,15 @@ class PlayerOne(GameObjects):
         if keys[pygame.K_s]:
             self.ypos += self.speed
 
-        return self.xpos,self.ypos
-
 class PlayerTwo(GameObjects):
-    pass
+    def update(self):
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_UP]:
+            self.ypos -= self.speed
+        if keys[pygame.K_DOWN]:
+            self.ypos += self.speed
+
 
 class Ball(GameObjects):
 
