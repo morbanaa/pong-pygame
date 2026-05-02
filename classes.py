@@ -1,4 +1,7 @@
 import random
+import pygame
+GAME_WIDTH = 1280
+GAME_HEIGHT = 720
 
 class GameObjects():
     def __init__(self,xpos,ypos,speed):
@@ -7,27 +10,20 @@ class GameObjects():
         self.speed = speed
 
 class PlayerOne(GameObjects):
-    pass
+    def update(self):
+        keys = pygame.key.get_pressed()
+
+        if keys[pygame.K_w]:
+            self.ypos -= self.speed
+        if keys[pygame.K_s]:
+            self.ypos += self.speed
+
+        return self.xpos,self.ypos
 
 class PlayerTwo(GameObjects):
     pass
 
 class Ball(GameObjects):
-    def __init__(self,xpos,ypos,speed,direction,angle):
-        super().__init__(xpos,ypos,speed)
-        self.direction = direction
-        self.angle = angle
 
     def update(self):
-        if self.direction == 1:
-            self.xpos -= self.speed
-        elif self.direction == 2:
-            self.xpos += self.speed
-
-        if self.direction == 1:
-            self.ypos -= self.angle
-        elif self.direction == 2:
-            self.ypos += self.angle
-        
-
         return self.xpos,self.ypos
